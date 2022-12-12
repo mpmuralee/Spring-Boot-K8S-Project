@@ -11,7 +11,7 @@ public class SpringbootK8sDemoApplication {
 
 	@GetMapping("/message")
 	public String displayMessage(){
-		return "Push second time Congratulation you successfully deployed your application to kubernetes !!";
+		return "Push Third time Congratulation you successfully deployed your application to kubernetes !!";
 	}
 
 	public static void main(String[] args) {
