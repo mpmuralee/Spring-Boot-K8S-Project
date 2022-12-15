@@ -20,7 +20,7 @@ public class SpringbootK8sDemoApplication {
 		 logger.info("this is a info message");
 	     logger.warn("this is a warn message");
 	     logger.error("this is a error message");
-		return "Push Third time Congratulation you successfully deployed your application to kubernetes !!";
+		return "Congratulation you successfully deployed your application to kubernetes !!";
 	}
 
 	public static void main(String[] args) {
