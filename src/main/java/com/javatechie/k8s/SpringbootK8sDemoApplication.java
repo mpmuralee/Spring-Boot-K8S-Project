@@ -20,7 +20,7 @@ public class SpringbootK8sDemoApplication {
 		 logger.info("this is a info message");
 	     logger.warn("this is a warn message");
 	     logger.error("this is a error message");
-		return "Congratulation you successfully deployed your application to Clouds CD CI Automated with docker push !!";
+		return "Congratulation you successfully deployed !!!!!!";
 	}
 
 	public static void main(String[] args) {
