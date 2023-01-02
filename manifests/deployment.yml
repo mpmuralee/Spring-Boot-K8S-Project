@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "springbootk8sproject-10b9"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "springbootk8sproject-10b9"
+  template:
+    metadata:
+      labels:
+        app: "springbootk8sproject-10b9"
+    spec:
+      containers:
+        - name: "springbootk8sproject-10b9"
+          image: "springbootk8s.azurecr.io/springbootk8sproject"
+          ports:
+          - containerPort: 8080
