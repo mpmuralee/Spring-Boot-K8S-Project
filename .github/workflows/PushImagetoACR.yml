@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: JDocker push Image to ACR
 
 on:
   push:
@@ -36,10 +36,11 @@ jobs:
         login-server: ${{ secrets.ACR_ENDPOINT }}
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
-      
-        -run:
-          docker build . -t ${{ secrets.ACR_ENDPOINT }}/springboot-k8s-demo:${{ github.sha }}
-          docker push ${{ secrets.ACR_ENDPOINT }}/springboot-k8s-demo:${{ github.sha }}
+
+         run:|
+            docker tag springboot-k8s-demo:latest ${{ secrets.ACR_ENDPOINT }}/springboot-k8s-demo:${{ github.sha }}
+            docker push ${{ secrets.ACR_ENDPOINT }}/springboot-k8s-demo:${{ github.sha }} 
+   
         
          # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
