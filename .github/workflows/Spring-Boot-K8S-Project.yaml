@@ -11,6 +11,7 @@ env:
     CLUSTER_RESOURCE_GROUP: SpringBootLearning
     CONTAINER_NAME: springboot-k8s-demo
     DEPLOYMENT_MANIFEST_PATH: |
+        ./DockerFile
         ./deployment.yaml
         ./service.yaml
 jobs:
@@ -19,6 +20,9 @@ jobs:
             contents: read
             id-token: write
         runs-on: ubuntu-latest
+
+
+
         steps:
             - uses: actions/checkout@v3
             - uses: azure/login@v1.4.3
@@ -39,6 +43,7 @@ jobs:
             - buildImage
         steps:
             - uses: actions/checkout@v3
+            
             - uses: azure/login@v1.4.3
               name: Azure login
               with:
