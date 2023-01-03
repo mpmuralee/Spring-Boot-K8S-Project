@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "springboottest-650c"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "springboottest-650c"
+  template:
+    metadata:
+      labels:
+        app: "springboottest-650c"
+    spec:
+      containers:
+        - name: "springboottest-650c"
+          image: "springbootk8sproject.azurecr.io/springboottest"
+          ports:
+          - containerPort: 8080
