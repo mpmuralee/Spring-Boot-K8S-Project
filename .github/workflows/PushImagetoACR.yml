@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: JDocker push Image to ACR
+name: Docker image push to ACR
 
 on:
   push:
@@ -33,7 +33,7 @@ jobs:
     - name: Build & push Docker image
       uses: azure/docker-login@v1
       with:
-        login-server: ${{ secrets.ACR_ENDPOINT }}
+        login-server: ${{ SpringBootK8SProject }}
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
 
