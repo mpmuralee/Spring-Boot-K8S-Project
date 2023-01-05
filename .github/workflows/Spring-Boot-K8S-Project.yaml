@@ -30,7 +30,7 @@ jobs:
             - name: Build and push image to ACR
               run: |
                  mvn clean install 
-                 az acr build --image ${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.ACR_RESOURCE_GROUP }} -f ./Dockerfile ./
+                 az acr build --image ${{ env.CONTAINER_NAME }}:latest --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.ACR_RESOURCE_GROUP }} -f ./Dockerfile ./
     deploy:
         permissions:
             actions: read
@@ -56,6 +56,6 @@ jobs:
               name: Deploys application
               with:
                 action: deploy
-                images: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
+                images: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:latest
                 manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
                 namespace: namespace-workflow-1672846439928
